@@ -76,6 +76,6 @@ formulas(goals).
 
 %% GOAL: "What am I doing? **"
 
-          __G__.
+          Playing | Watching | Reading.
 
 end_of_list.
