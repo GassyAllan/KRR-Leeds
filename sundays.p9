@@ -61,7 +61,7 @@ formulas(assumptions).
 
 %% A2: "Saturday and Sunday is the weekend."
 
-         (Saturday = x),(Sunday = y), all(x,y) = weekend.
+         (Saturday = x),(Sunday = x), all(x) = Weekend.
 
 %% A3: "On holidays the University is closed."
 
