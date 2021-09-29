@@ -59,15 +59,15 @@ formulas(assumptions).
 
 %% A1: "If I'm not playing tennis, I'm watching tennis."
 
-        __A1__.
+        -Playing -> Watching.
 
 %% A2: "If I'm not watching tennis, I'm reading about tennis."
 
-        __A2__.
+        -Watching -> Reading.
 
 %% A3: "I cannot do more than one tennis-related activity at the same time. *"
 
-        __A3__.
+        Playing | Watching | Reading.
 
 
 end_of_list.
