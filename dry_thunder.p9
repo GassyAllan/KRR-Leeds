@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "A Dry Thunderstorm is defined by the occurence of lightning without rain."
 
-        DryThunder = Lightning & -Raining.
+        DryThunder -> Lightning & -Raining.
 
 %% A2: "There is a dry thunderstorm."
 
