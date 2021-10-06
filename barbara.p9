@@ -58,11 +58,11 @@ formulas(assumptions).
 
 %% A1: "All Greeks are men."
 
-        all Man(Greek).
+        all Greek(Man).
 
 %% A2: "All men are mortal."
 
-        all Mortal(Man).
+        all Man(Mortal).
 
 
 end_of_list.
@@ -71,6 +71,6 @@ formulas(goals).
 
 %% GOAL: "All Greeks are mortal."
 
-          all Mortal(Greek).
+          all Greek(Mortal).
 
 end_of_list.
