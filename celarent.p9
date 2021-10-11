@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "No reptiles have fur."
 
-        all x(Reptile(x) -> HasFur(x)).
+        all x(-Reptile(x) -> HasFur(x)).
 
 %% A2: "All snakes are reptiles."
 
-        all x(Snakes(x) -> Reptile(x)).
+        all x(Snake(x) -> Reptile(x)).
 
 
 end_of_list.
@@ -70,6 +70,6 @@ formulas(goals).
 
 %% GOAL: "No snakes have fur."
 
-          all x(-Snakes(x) -> HasFur(x)).
+          all x(-Snake(x) -> HasFur(x)).
 
 end_of_list.
