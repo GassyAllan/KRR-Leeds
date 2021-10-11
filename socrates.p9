@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "Socrates is Greek."
 
-        Socrates -> Greek.
+        Greek(Socrates).
 
 %% A2: "All Greeks are men."
 
@@ -74,6 +74,6 @@ formulas(goals).
 
 %% GOAL: "Socrates is mortal."
 
-          Socrates -> Mortal.
+          Mortal(Socrates).
 
 end_of_list.
