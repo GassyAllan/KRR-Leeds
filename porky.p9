@@ -78,6 +78,6 @@ formulas(goals).
 
 %% GOAL: "Porky does not run fast."
 
-          Pig(Porky) -> -Fast.
+          Pig(Porky) -> -Fast(Porky).
 
 end_of_list.
