@@ -71,6 +71,6 @@ formulas(goals).
 
 %% GOAL: "All Greeks are mortal."
 
-          all x(Greek(x) -> Mortal(x).
+          all x(Greek(x) -> Mortal(x)).
 
 end_of_list.
