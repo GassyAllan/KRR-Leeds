@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "No old rabbits are greedy."
 
-        all Rabbit (Old (Rabbit) -> -Greedy (Rabbit)).
+        all x ((Old (x) & Rabbit (x)) -> -Greedy (x)).
 
 %% A2: "All black rabbits are greedy."
 
-        all x (Black (Rabbit) -> Greedy (Rabbit)).
+        all x ((Black(x) & Rabbit(x)) -> Greedy (x)).
 
 
 end_of_list.
@@ -70,6 +70,6 @@ formulas(goals).
 
 %% GOAL: "No old rabbits are black."
 
-          all Rabbit(Old (Rabbit) -> - Black(Rabbit)).
+          all x ((Old(x) & Rabbit(x)) -> - Black(x)).
 
 end_of_list.
