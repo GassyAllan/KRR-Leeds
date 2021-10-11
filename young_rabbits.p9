@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "Young rabbits are greedy."
 
-        all x ((Young (x) & Rabbit(x)) -> Greedy) .
+        all x ((Young (x) & Rabbit(x)) -> Greedy(x)) .
 
 %% A2: "Greedy animals are fat."
 
-        all x ((Greedy(x) & Animal(x)) -> Fat).
+        all x ((Greedy(x) & Animal(x)) -> Fat(x)).
 
 %% A3: "Rabbits are animals."
 
