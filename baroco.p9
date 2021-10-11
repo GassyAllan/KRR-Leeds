@@ -70,6 +70,6 @@ formulas(goals).
 
 %% GOAL: "Some web sites are not informative."
 
-          exists x (Websites(x) & -Informative(x)).
+          exists x (Website(x) & -Informative(x)).
 
 end_of_list.
