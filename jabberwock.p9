@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "The Jabberwock is a creature with eyes of flame."
 
-        Creature(Jabberwock) -> FlameyEyes.
+        Creature(Jabberwock) -> FlameyEyes(Jabberwock).
 
 %% A2: "All creatures with eyes of flame whiffle and burble."
 
@@ -65,7 +65,7 @@ formulas(assumptions).
 
 %% A3: "All creatures that whiffle or burble have claws."
 
-        all x((Creature(x) & (Whiffle(x) | Burble(x)) -> HasClaws(x)).
+        all x((Creature(x) & (Whiffle(x) | Burble(x))) -> HasClaws(x)).
 
 
 end_of_list.
@@ -74,6 +74,6 @@ formulas(goals).
 
 %% GOAL: "The Jabberwock has claws."
 
-          Creature(Jabberwock) -> HasClaws.
+          Creature(Jabberwock) -> HasClaws(Jabberwock).
 
 end_of_list.
