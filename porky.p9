@@ -78,6 +78,6 @@ formulas(goals).
 
 %% GOAL: "Porky does not run fast."
 
-          exists Porky(Pig(Porky) -> -Fast(Porky)).
+          exists Porky(Pig(Porky) & -Fast(Porky)).
 
 end_of_list.
