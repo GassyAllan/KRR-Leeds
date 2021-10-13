@@ -58,11 +58,11 @@ formulas(assumptions).
 
 %% A1: "All, who neither dance on tightropes nor eat penny-buns, are old."
 
-        __A1__.
+        all x( (-Dance_on_Tightropes(x) & -Eat_Penny_Buns(x)) -> Old(x)).
 
 %% A2: "Pigs, that are liable to giddiness, are treated with respect."
 
-        __A2__.
+        all x( Pig(x).
 
 %% A3: "A wise balloonist takes an umbrella with him."
 
