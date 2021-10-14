@@ -78,7 +78,7 @@ formulas(assumptions).
 
 %% A6: "Fat creatures, who look ridiculous, may lunch in public, provided that they do not dance on tightropes."
 
-        exists x ( ((Fat(x) & Ridiculous(x)) & -Dance_on_Tightropes(x)) -> Lunch_in_Public(x)).
+        all x ( ((Fat(x) & Ridiculous(x)) & -Dance_on_Tightropes(x)) -> Lunch_in_Public(x)).
 
 %% A7: "No wise creatures dance on tightropes, if liable to giddiness."
 
@@ -94,7 +94,7 @@ formulas(assumptions).
 
 %% A10: "No one is young and old at the same time."
 
-        all x( (Young(x) <-> -Old(x)) | (-Young(x) <-> Old(x) ).
+        all x( (Young(x) <-> -Old(x)) | (-Young(x) <-> Old(x)) ).
 
 
 end_of_list.
