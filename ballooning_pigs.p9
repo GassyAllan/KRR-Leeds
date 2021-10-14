@@ -94,7 +94,7 @@ formulas(assumptions).
 
 %% A10: "No one is young and old at the same time."
 
-        all x( (Young(x) <-> -Old(x)) | (-Young(x) <-> Old(x)) ).
+        all x(Young(x) <-> -Old(x)).
 
 
 end_of_list.
