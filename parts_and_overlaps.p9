@@ -61,7 +61,7 @@ formulas(assumptions).
 
 %% A2: "Definition of Parthood: A region, A, is part of a region, B,  if and only if whenever a region, C, is in contact with A then it is in contact with B."
 
-        exists a exists b exists c ( PartOf(b,a) <-> (Contact (c,a) | Contact(c,b)) ).
+        exists a exists b exists c ( PartOf(a,b) <-> (Contact (c,a) & Contact(c,b)) ).
 
 %% A3: "Definition of Proper Parthood: A region A is a proper part of a region B if and only if A is part of B but B is not part of A."
 
@@ -69,7 +69,7 @@ formulas(assumptions).
 
 %% A4: "Definition of Overlap: A region A overlaps a region B if and only if there is a region which is part of both region A and B."
 
-        exists a exists b ( Overlaps(a,b) <-> exists c(Partof(c,a) & Partof(c,b)) ).
+        exists a exists b ( Overlaps(a,b) <-> exists c(PartOf(c,a) & PartOf(c,b)) ).
 
 
 end_of_list.
@@ -78,6 +78,6 @@ formulas(goals).
 
 %% GOAL: "If any region A is a proper part of any region B then A overlaps B and A is in contact with B."
 
-          all x exists a exists b( (Partof(x,a) & ProperPartOf(x,b)) -> (overlaps(a,b) & contact(a,b)) ).
+          exists x exists a exists b( (PartOf(x,a) & ProperPartOf(x,b)) -> (Overlaps(a,b) & Contact(a,b)) ).
 
 end_of_list.
