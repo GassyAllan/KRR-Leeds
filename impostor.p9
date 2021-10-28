@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "Blue,Red,Yellow, Purple and a Janitor are crewmembers on a ship and are the only crewmembers."
 
-        Crewmember(Blue) & Crewmember(Red) & Crewmember(Purple) & Crewmember(Janitor) & -Exists x(Crewmember(x)).
+        Crewmember(Blue) & Crewmember(Red) & Crewmember(Purple) & Crewmember(Janitor) & -exists x(Crewmember(x)).
 
 %% A2: "There are two crewmembers who are impostors."
 
-        Exists x Exists y( (Crewmember(x) & Impostor(x)) & (Crewmember(y) & Imposter(y)) & -(x = y) ).
+        exists x exists y( (Crewmember(x) & Impostor(x)) & (Crewmember(y) & Impostor(y)) & -(x=y) ).
 
 %% A3: "There are no more than two impostors."
 
@@ -69,7 +69,7 @@ formulas(assumptions).
 
 %% A4: "If somebody accuses someone then the accused is an impostor or the accuser is the impostor."
 
-        all x all y (Accused (x,y)) -> Imposter(x) | Imposter (y).
+        all x all y (Accused (x,y)) -> Impostor(x) | Impostor (y).
 
 %% A5: "If somebody is known to be an impostor, then they are an impostor."
 
@@ -77,19 +77,19 @@ formulas(assumptions).
 
 %% A6: "Impostors know they are impostors."
 
-        all x (Imposter(x)) -> KnowImpostor(x,x).
+        all x (Impostor(x)) -> KnowImpostor(x,x).
 
 %% A7: "If someone is murdered then they are not an impostor."
 
-        all x (Murdered(x)) -> -Imposter(x).
+        all x (Murdered(x)) -> -Impostor(x).
 
 %% A8: "Purple knows one of the impostors."
 
-        KnowImpostor(Purple, exists x(Imposter(x)) ).
+        KnowImpostor(Purple, exists x(Impostor(x)) ).
 
 %% A9: "Purple doesn't know that the Janitor or Blue are an impostor."
 
-        -KnowImposter(Purple, Janitor) & -KnowImposter(Purple, Blue).
+        -KnowImpostor(Purple, Janitor) & -KnowImpostor(Purple, Blue).
 
 %% A10: "Purple was found murdered."
 
@@ -97,7 +97,7 @@ formulas(assumptions).
 
 %% A11: "Neither Red or Blue are the Janitor."
 
-        Red & Blue -> -Janitor.
+        Red -> -Janitor & Blue -> -Janitor.
 
 %% A12: "Blue accused Yellow."
 
@@ -114,6 +114,6 @@ formulas(goals).
 
 %% GOAL: "Yellow, Purple and the Janitor are not impostors and Blue and Red are impostors."
 
-          -Imposter(Yellow) & -Imposter(Purple) & -Imposter(Janitor) & Imposter(Blue) & Imposter(Red).
+          -Impostor(Yellow) & -Impostor(Purple) & -Impostor(Janitor) & Impostor(Blue) & Impostor(Red).
 
 end_of_list.
