@@ -57,19 +57,19 @@ formulas(assumptions).
 
 %% A1: "An axiom for Contact: Contact is reflexive."
 
-        __A1__.
+        all x (Contact(x,x)).
 
 %% A2: "Definition of Parthood: A region, A, is part of a region, B,  if and only if whenever a region, C, is in contact with A then it is in contact with B."
 
-        __A2__.
+        exists a exists b exists c ( PartOf(b,a) <-> (Contact (c,a) | Contact(c,b)) ).
 
 %% A3: "Definition of Proper Parthood: A region A is a proper part of a region B if and only if A is part of B but B is not part of A."
 
-        __A3__.
+        exists a exists b ( ProperPartOf (a,b) <-> (PartOf(a,b) & -PartOf(b,a)) ).
 
 %% A4: "Definition of Overlap: A region A overlaps a region B if and only if there is a region which is part of both region A and B."
 
-        __A4__.
+        exists a exists b ( Overlaps(a,b) <-> exists c(Partof(c,a) & Partof(c,b)) ).
 
 
 end_of_list.
@@ -78,6 +78,6 @@ formulas(goals).
 
 %% GOAL: "If any region A is a proper part of any region B then A overlaps B and A is in contact with B."
 
-          __G__.
+          all x exists a exists b( (Partof(x,a) & ProperPartOf(x,b)) -> (overlaps(a,b) & contact(a,b)) ).
 
 end_of_list.
