@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "Blue,Red,Yellow, Purple and a Janitor are crewmembers on a ship and are the only crewmembers."
 
-        __A1__.
+        Crewmember(Blue) & Crewmember(Red) & Crewmember(Purple) & Crewmember(Janitor) & -Exists x(Crewmember(x)).
 
 %% A2: "There are two crewmembers who are impostors."
 
-        __A2__.
+        Exists x Exists y( (Crewmember(x) & Impostor(x)) & (Crewmember(y) & Imposter(y)) & -(x = y) ).
 
 %% A3: "There are no more than two impostors."
 
@@ -69,43 +69,43 @@ formulas(assumptions).
 
 %% A4: "If somebody accuses someone then the accused is an impostor or the accuser is the impostor."
 
-        __A4__.
+        all x all y (Accused (x,y)) -> Imposter(x) | Imposter (y).
 
 %% A5: "If somebody is known to be an impostor, then they are an impostor."
 
-        __A5__.
+        all x all y (KnowImpostor(x,y)) -> Impostor(y).
 
 %% A6: "Impostors know they are impostors."
 
-        __A6__.
+        all x (Imposter(x)) -> KnowImpostor(x,x).
 
 %% A7: "If someone is murdered then they are not an impostor."
 
-        __A7__.
+        all x (Murdered(x)) -> -Imposter(x).
 
 %% A8: "Purple knows one of the impostors."
 
-        __A8__.
+        KnowImpostor(Purple, exists x(Imposter(x)) ).
 
 %% A9: "Purple doesn't know that the Janitor or Blue are an impostor."
 
-        __A9__.
+        -KnowImposter(Purple, Janitor) & -KnowImposter(Purple, Blue).
 
 %% A10: "Purple was found murdered."
 
-        __A10__.
+        Murdered(Purple).
 
 %% A11: "Neither Red or Blue are the Janitor."
 
-        __A11__.
+        Red & Blue -> -Janitor.
 
 %% A12: "Blue accused Yellow."
 
-        __A12__.
+        Accused (Blue, Yellow).
 
 %% A13: "Nobody knows that Yellow is an impostor."
 
-        __A13__.
+        - all x(KnowImposter(x,yellow).
 
 
 end_of_list.
@@ -114,6 +114,6 @@ formulas(goals).
 
 %% GOAL: "Yellow, Purple and the Janitor are not impostors and Blue and Red are impostors."
 
-          __G__.
+          -Imposter(Yellow) & -Imposter(Purple) & -Imposter(Janitor) & Imposter(Blue) & Imposter(Red).
 
 end_of_list.
