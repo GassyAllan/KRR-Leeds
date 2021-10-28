@@ -58,25 +58,33 @@ formulas(assumptions).
 %% A1: "Two of the people who live in the village Ingleton are Tom and his old father, Alfred,
 %%                             who is blind."
 
-        __A1__.
+        exists tom( Lives (person(tom), Village(ingleton)) &
+        exists alfred( Lives ((Person(alfred) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred), Village(ingleton)).
+     
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
 
-        __A2__.
+        Barber(x) <-> Shaves(Person(x),Person(y)).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
-        __A3__.
+        (-exists x(Barber(x) & Bearded(x))) & -(Shaves(Blind(Person(y)), Person(w)) -> Shaves(Person(tom), Person (alfred)).
+        %% no barber that is bearded        
 
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
 %%                                or are shaved by a barber who lives in the same village. ****"
 
-        __A4__.
+        all x all y( Lives (x,village(y)) 
+        & -( Shaves(x,x) | (exists w exists y( lives (Barber(w),y) & Shaves(w,x)))
+        -> Bearded(x)).
 
 %% A5: "No more than one barber lives in any village and
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
 
-        __A5__.
+        (-all v exists y exists z(Barber(y) & Barber(z) & Lives(y,v) & Lives(z,v) & -(y=z)))
+        & 
+        (all x all u(Lives(x, Village(ingleton)) & Shaves(x,x) & -Shaves(Barber(u), x)).
+        
 
 
 end_of_list.
@@ -85,6 +93,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          __G__.
+          exists x y (Ate (Pink(Dog(x)),Homework(y))) .
 
 end_of_list.
