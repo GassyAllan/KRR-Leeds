@@ -61,19 +61,19 @@ formulas(assumptions).
 
 %% A2: "Festivals only take place on Moondays, Stardays and Sumdays."
 
-        __A2__.
+        FestivalDay -> Moonday | Starday | Starday.
 
 %% A3: "I'm always happy on Stardays"
 
-        __A3__.
+        exists i ( Starday -> Happy(i)).
 
 %% A4: "On Sumdays I eat pancakes and on Moondays I eat jelly."
 
-        __A4__.
+        (Sumday -> EatPancakes(i) ) & (Moondays -> EatJelly).
 
 %% A5: "On Moondays I sing and Dance"
 
-        __A5__.
+        Moondays -> ( Sing(i) & Dance(i)).
 
 %% A6: "When I'm ill I can neither sing nor dance."
 
