@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "Today is a festival day but I'm not Happy."
 
-        __A1__.
+        exists today exists i (FestivalDay(today) & -Happy(i)).
 
 %% A2: "Festivals only take place on Moondays, Stardays and Sumdays."
 
-        FestivalDay -> Moonday | Starday | Starday.
+        FestivalDay -> Moonday | Starday | Sumday.
 
 %% A3: "I'm always happy on Stardays"
 
@@ -69,19 +69,19 @@ formulas(assumptions).
 
 %% A4: "On Sumdays I eat pancakes and on Moondays I eat jelly."
 
-        (Sumday -> EatPancakes(i) ) & (Moondays -> EatJelly).
+        exists i(Sumday -> EatPancakes(i) ) & (Moondays -> EatJelly(i)).
 
 %% A5: "On Moondays I sing and Dance"
 
-        Moondays -> ( Sing(i) & Dance(i)).
+        exists i (Moondays -> ( Sing(i) & Dance(i))).
 
 %% A6: "When I'm ill I can neither sing nor dance."
 
-        __A6__.
+        exists i ((Ill(i) -> -Sing(i)) & (Ill(i) -> -Dance(i)) ).
 
 %% A7: "Eating pancakes or jelly makes me happy unless I'm ill."
 
-        __A7__.
+        exists i(((EatPancakes(i) | EatJelly(i)) & -Ill(i) ) -> Happy(i)).
 
 
 end_of_list.
@@ -90,6 +90,6 @@ formulas(goals).
 
 %% GOAL: "What day is it? *"
 
-          __G__.
+          Moonday.
 
 end_of_list.
