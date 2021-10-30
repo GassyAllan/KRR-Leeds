@@ -57,27 +57,27 @@ formulas(assumptions).
 
 %% A1: "Sam and Tam are students who both wear earhook headphones. *"
 
-        __A1__.
+        exists sam exists tam(Student(sam) & Student(tam) & WearEarhooks(sam) & WearEarhooks(tam)).
 
 %% A2: "Sam has long hair and does not like sport."
 
-        __A2__.
+        exists sam (LongHair(sam) & -Likes(sam, Sporty)).
 
 %% A3: "Sporty students don't have long hair."
 
-        __A3__.
+        all x( (Student(x) & Sporty(x)) -> LongHair(x)).
 
 %% A4: "Hipsters only like tunes that no non-hipster likes."
 
-        __A4__.
+        exists x.
 
 %% A5: "Hispsters either have long hair or short hair."
 
-        __A5__.
+        exists x( (Hipster(x) -> LongHair(x)) | (Hipster(x) -> ShortHair(x)) ).
 
 %% A6: "Students only whistle tunes they like."
 
-        __A6__.
+        exists x exists y ( Student(x) & Tune(y) & Whistles (x,y) ).
 
 %% A7: "Sam and Tam both whistle the same tune."
 
