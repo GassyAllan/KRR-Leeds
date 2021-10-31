@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "Blue,Red,Yellow, Purple and a Janitor are crewmembers on a ship and are the only crewmembers."
 
-        all x(Crewmember(x)) <->  ( (x = Blue) | (x =Yellow) | (x = Red) | (x = Purple) | (x = Janitor) ).
+        all x( Crewmember(x) <->  x = Blue | x =Yellow | x = Red | x = Purple | x = Janitor ).
 
 %% A2: "There are two crewmembers who are impostors."
 
@@ -65,7 +65,7 @@ formulas(assumptions).
 
 %% A3: "There are no more than two impostors."
 
-        __A3__.
+        -exists x exists y exists z( Impostor(x) & Impostor(y) & Impostor(z) & -(x=y) & -(x=z) & -(z=y) ).
 
 %% A4: "If somebody accuses someone then the accused is an impostor or the accuser is the impostor."
 
@@ -105,7 +105,7 @@ formulas(assumptions).
 
 %% A13: "Nobody knows that Yellow is an impostor."
 
-        -all x( KnowsImpostor(x,Yellow) ).
+        -exists x( KnowsImpostor(x,Yellow) ).
 
 
 end_of_list.
