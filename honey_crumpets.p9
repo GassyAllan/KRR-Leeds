@@ -57,15 +57,15 @@ formulas(assumptions).
 
 %% A1: "All crumpets have butter or honey on them."
 
-        __A1__.
+        all x (Honey(x) | Butter (x)).
 
 %% A2: "No crumpet has both honey and butter."
 
-        __A2__.
+         - exists x (Honey(x) & Butter(x)).
 
 %% A3: "There are exactly two honey crumpets."
 
-        __A3__.
+        exists x exists y ( Honey(x) & Honey(y) & -(x=y)).
 
 %% A4: "There are exactly two buttered crumpets."
 
