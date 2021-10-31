@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "Blue,Red,Yellow, Purple and a Janitor are crewmembers on a ship and are the only crewmembers."
 
-        all x(Crewmember(x) <->  ( (x = Blue) | (x =Yellow) | (x = Red) | (x = Purple) | (x = Janitor) ).
+        all x(Crewmember(x)) <->  ( (x = Blue) | (x =Yellow) | (x = Red) | (x = Purple) | (x = Janitor) ).
 
 %% A2: "There are two crewmembers who are impostors."
 
@@ -69,11 +69,11 @@ formulas(assumptions).
 
 %% A4: "If somebody accuses someone then the accused is an impostor or the accuser is the impostor."
 
-        exists x exists y (Accused (x,y) -> ( (Impostor(x) & -Impostor (y)) | (-Impostor(x) & Impostor (y)) )).
+        all x all y (Accused (x,y) -> Impostor(x) | Impostor (y) ).
 
 %% A5: "If somebody is known to be an impostor, then they are an impostor."
 
-        exists x exists y( KnowsImpostor(x,y) -> Impostor(y)).
+        exists x all y( KnowsImpostor(x,y) -> Impostor(y)).
 
 %% A6: "Impostors know they are impostors."
 
@@ -85,7 +85,7 @@ formulas(assumptions).
 
 %% A8: "Purple knows one of the impostors."
 
-        exists x (KnowsImpostor(Purple, x ) & Impostor(x)).
+        exists x (KnowsImpostor(Purple, x)).
 
 %% A9: "Purple doesn't know that the Janitor or Blue are an impostor."
 
@@ -105,7 +105,7 @@ formulas(assumptions).
 
 %% A13: "Nobody knows that Yellow is an impostor."
 
-        - all x(KnowsImpostor(x,Yellow)).
+        -all x( KnowsImpostor(x,Yellow) ).
 
 
 end_of_list.
