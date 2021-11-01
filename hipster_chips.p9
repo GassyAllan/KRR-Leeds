@@ -65,7 +65,7 @@ formulas(assumptions).
 
 %% A3: "Sporty students don't have long hair."
 
-        all x( (Student(x) & Sporty(x)) -> LongHair(x)).
+        all x( (Student(x) & Sporty(x)) -> -LongHair(x)).
 
 %% A4: "Hipsters only like tunes that no non-hipster likes."
 
