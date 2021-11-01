@@ -61,15 +61,17 @@ formulas(assumptions).
 
 %% A2: "No crumpet has both honey and butter."
 
-         exists x -(Honey(x) & Butter(x)).
+         all x -(Honey(x) & Butter(x)).
 
 %% A3: "There are exactly two honey crumpets."
 
-        all x all y all z (exists x exists y exists z( Honey(x) & Honey(y) & -Honey(z) & -(x=y) & -(x=z) & -(y=z) ) ) .
+        exists x exists y( Honey(x) & Honey(y) & -(x=y)) &
+        exists x exists y exists z-( Honey(x) & Honey(y) & Honey(z) & -(x=y) & -(x=z) & -(y=z) ) ) .
 
 %% A4: "There are exactly two buttered crumpets."
 
-        all x all y all z (exists x exists y exists z( Butter(x) & Butter(y) & -Butter(z) & -(x=y) & -(x=z) & -(y=z) ) ).
+        exists x exists y( Butter(x) & Butter(y) & -(x=y)) &
+        exists x exists y exists z-( Butter(x) & Butter(y) & Butter(z) & -(x=y) & -(x=z) & -(y=z) ) ).
 
 %% A5: "Any two different crumpets are either next to each other or diagonally opposite."
 
@@ -97,19 +99,19 @@ formulas(assumptions).
 
 %% A11: "Every crumpet is diagonally opposite another crumpet."
 
-        all x all y(Diagonal(x,y)).
+        all x exists y(Diagonal(x,y)).
 
 %% A12: "Every crumpet is next to two different crumpets."
 
-        all x( exists y exists z( NextTo(x,y) & NextTo(x,z) & -(x=y) & -(x=z)).
+        all x exists y exists z( NextTo(x,y) & NextTo(x,z) & -(x=y) & -(x=z)).
 
 %% A13: "There are two honey crumpets which are next to each other."
 
-        exists x exists y(Honey(x) & Honey(y) & -(x=y) & NextTo(x,y)).
+        exists x exists y(Honey(x) & Honey(y) & -(x=y) & NextTo(x,y) & NextTo(y,x)).
 
 %% A14: "If a crumpet A is diagonally opposite another crumpet B, and B is diagonally opposite another crumpet C, then A is C."
 
-        exists a exists b exists c ( (Diagonal(a,b) & Diagonal (b,c)) -> a=c ).
+        all a exists b exists c ( (Diagonal(a,b) & Diagonal (b,c)) -> a=c ).
 
 %% A15: "I ate two diagonally opposite crumpets."
 
