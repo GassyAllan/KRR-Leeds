@@ -66,12 +66,12 @@ formulas(assumptions).
 %% A3: "There are exactly two honey crumpets."
 
         exists x exists y( Honey(x) & Honey(y) & -(x=y)) &
-        exists x exists y exists z-( Honey(x) & Honey(y) & Honey(z) & -(x=y) & -(x=z) & -(y=z) ) ) .
+        exists x exists y exists z-( Honey(x) & Honey(y) & Honey(z) & -(x=y) & -(x=z) & -(y=z) ).
 
 %% A4: "There are exactly two buttered crumpets."
 
         exists x exists y( Butter(x) & Butter(y) & -(x=y)) &
-        exists x exists y exists z-( Butter(x) & Butter(y) & Butter(z) & -(x=y) & -(x=z) & -(y=z) ) ).
+        exists x exists y exists z-( Butter(x) & Butter(y) & Butter(z) & -(x=y) & -(x=z) & -(y=z) ).
 
 %% A5: "Any two different crumpets are either next to each other or diagonally opposite."
 
