@@ -61,7 +61,7 @@ formulas(assumptions).
 
 %% A2: "Sam has long hair and does not like sport."
 
-        exists sam (LongHair(sam) & -Likes(sam, Sporty)).
+        exists sam exists x(LongHair(sam) & Sporty(x) & -Likes(sam, x)).
 
 %% A3: "Sporty students don't have long hair."
 
@@ -69,51 +69,51 @@ formulas(assumptions).
 
 %% A4: "Hipsters only like tunes that no non-hipster likes."
 
-        exists x.
+        all x all y all z( -(-Hipster(x) & Tune(y) & Likes(x,y)) -> Hipster(z) & Likes(z,y) ) .
 
 %% A5: "Hispsters either have long hair or short hair."
 
-        exists x( (Hipster(x) -> LongHair(x)) | (Hipster(x) -> ShortHair(x)) ).
+        all x( (Hipster(x) -> LongHair(x)) | (Hipster(x) -> ShortHair(x)) ).
 
 %% A6: "Students only whistle tunes they like."
 
-        exists x exists y ( Student(x) & Tune(y) & Whistles (x,y) ).
+        all x all y ( Student(x) & Tune(y) & Whistles (x,y) -> Like(x,y) ).
 
 %% A7: "Sam and Tam both whistle the same tune."
 
-        __A7__.
+        exists sam exists tam exists x(Tune(x) & Whistles(sam,x) & Whistles(tam,x)).
 
 %% A8: "Only hipsters and sporty students wear earhook headphones."
 
-        __A8__.
+        all x( WearEarhooks(x) -> (Hipster(x) & Student(x)) | (Sporty(x) & Student(x)) ).
 
 %% A9: "All long-haired hipsters are vegetarians."
 
-        __A9__.
+        all x (LongHair(x) & Hipster(x) -> Vegetarian(x) ).
 
 %% A10: "All hipsters with short hair are allergic to something."
 
-        __A10__.
+        all x exists y( Hipster(x) & Shorthair(x) -> AllergicTo(x,y) ).
 
 %% A11: "Tam is not allergic to anything."
 
-        __A11__.
+        exists tam exists y -(AllergicTo(tam,y)).
 
 %% A12: "Vegetarians don't eat food that contains meat. **"
 
-        __A12__.
+        all v all x all y(Food(x) & Meat(y) & Contains(x,y) -> Vegetarian(v) & -Eats(v,x) ).
 
 %% A13: "All snacks from burger vans contain meat except chips."
 
-        __A13__.
+        all x all y all z (BurgerVan(x) & Snack(y) & From(y,x) -> (Meat(z) & Contains(y,z)) | Chips(y) ) .
 
 %% A14: "Tam is eating a snack from a burger van."
 
-        __A14__.
+        exists tam exists x exists y( BurgerVan(x) & Snack(y) & From(y,x) & Eats(tam,y) ).
 
 %% A15: "Give a general axiom linking the concepts 'snack' and 'food'. ***"
 
-        __A15__.
+        all x all y (Snack(x) <-> Food(y)).
 
 
 end_of_list.
@@ -122,6 +122,6 @@ formulas(goals).
 
 %% GOAL: "Tam is eating chips."
 
-          __G__.
+          exists tam exists x(Chips(x) & Eats(tam,x) ).
 
 end_of_list.
