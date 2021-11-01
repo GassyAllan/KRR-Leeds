@@ -65,7 +65,7 @@ formulas(assumptions).
 
 %% A3: "There are no more than two impostors."
 
-        -exists x exists y exists z( Impostor(x) & Impostor(y) & Impostor(z) & -(x=y) & -(x=z) & -(z=y) ).
+        exists x exists y exists z -(Impostor(x) & Impostor(y) & Impostor(z) & -(x=y) & -(x=z) & -(z=y) ).
 
 %% A4: "If somebody accuses someone then the accused is an impostor or the accuser is the impostor."
 
@@ -105,7 +105,7 @@ formulas(assumptions).
 
 %% A13: "Nobody knows that Yellow is an impostor."
 
-        -exists x( KnowsImpostor(x,Yellow) ).
+        all x -( KnowsImpostor(x,Yellow) ).
 
 
 end_of_list.
