@@ -66,12 +66,12 @@ formulas(assumptions).
 %% A3: "There are exactly two honey crumpets."
 
         exists x exists y( Honey(x) & Honey(y) & -(x=y)) &
-        exists x exists y exists z-( Honey(x) & Honey(y) & Honey(z) & -(x=y) & -(x=z) & -(y=z) ).
+        -(exists x exists y exists z( Honey(x) & Honey(y) & Honey(z) & -(x=y) & -(x=z) & -(y=z))).
 
 %% A4: "There are exactly two buttered crumpets."
 
         exists x exists y( Butter(x) & Butter(y) & -(x=y)) &
-        exists x exists y exists z-( Butter(x) & Butter(y) & Butter(z) & -(x=y) & -(x=z) & -(y=z) ).
+        -(exists x exists y exists z(Butter(x) & Butter(y) & Butter(z) & -(x=y) & -(x=z) & -(y=z))).
 
 %% A5: "Any two different crumpets are either next to each other or diagonally opposite."
 
@@ -111,11 +111,11 @@ formulas(assumptions).
 
 %% A14: "If a crumpet A is diagonally opposite another crumpet B, and B is diagonally opposite another crumpet C, then A is C."
 
-        all a exists b exists c ( (Diagonal(a,b) & Diagonal (b,c)) -> a=c ).
+        all a all b all c ( (Diagonal(a,b) & Diagonal (b,c)) -> a=c ).
 
 %% A15: "I ate two diagonally opposite crumpets."
 
-        exists i exists x exists y (Diagonal(x,y) & -(x=y) & Ate(i,x) & Ate(i,y)).
+        exists x exists y (Diagonal(x,y) & -(x=y) & Ate(x) & Ate(y)).
 
 
 end_of_list.
@@ -124,6 +124,6 @@ formulas(goals).
 
 %% GOAL: "I ate a honey crumpet."
 
-          exists i exists x (Honey(x) & Ate(i,x)).
+          exists x (Honey(x) & Ate(x)).
 
 end_of_list.
