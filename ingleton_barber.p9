@@ -58,25 +58,25 @@ formulas(assumptions).
 %% A1: "Two of the people who live in the village Ingleton are Tom and his old father, Alfred,
 %%                             who is blind."
 
-        exists tom exists alfred exists ingleton( Person(tom) & Person(alfred) & Village(ingleton) 
-        & Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred).
+        exists tom exists alfred exists ingleton(Person(tom) & Person(alfred) & Village(ingleton) 
+        & Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred)).
      
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
 
-        Barber(x) <-> Person(x) & Person(y) & Shaves(x,y).
+        all x exists y(Barber(x) <-> Person(x) & Person(y) & Shaves(x,y)).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
-        (all x(Barber(x) -> -Bearded(x))) & (exists y exists z -(Person(y) & Person(z) & Blind(y) & Shaves(y,z))) ->
+        all x(Barber(x) -> -Bearded(x)) & -(exists y exists z(Person(y) & Person(z) & Blind(y) & Shaves(y,z))) &
         exists tom exists alfred (Shaves(tom,alfred)).
-        %% no barber that is bearded        
+               
 
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
 %%                                or are shaved by a barber who lives in the same village. ****"
 
-        all x all y(Person(x) & village(y) & Lives (x,y)) 
-        & ( (-Shaves(x,x)) | (exists z-(Barber(z) & lives(z,y) & Shaves(z,x)))
+        all x all y(Person(x) & Village(y) & Lives (x,y)) 
+        & ( (-Shaves(x,x)) | (exists z-(Barber(z) & Lives(z,y) & Shaves(z,x)))
         -> Bearded(x)).
 
 %% A5: "No more than one barber lives in any village and
@@ -87,7 +87,7 @@ formulas(assumptions).
         
         & all x exists ingleton (Person(x) & Village(ingleton) & Lives(x, ingleton) & Shaves(x,x) & -Shaves(y,x))
         .
-        %% all v exists y (Village(v) & Barber(y) & Lives(y,v)) %%assumes at least one barber lives in a village
+        
 
 
 end_of_list.
@@ -96,6 +96,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          exists x exists y exists me (Dog(x) & Pink(x) & Homework(me) & Ate(x,me)) .
+          exists x exists y(Dog(x) & Pink(x) & Homework(y) & Ate(x,y)) .
 
 end_of_list.
