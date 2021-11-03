@@ -59,12 +59,12 @@ formulas(assumptions).
 %%                             who is blind."
 
         exists tom exists alfred exists ingleton(Person(tom) & Person(alfred) & Village(ingleton) 
-        & Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred)).
+        & Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred) & -(tom = alfred) & -(tom = ingleton) & -(alfred = ingleton)).
      
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
 
-        all x exists y(Barber(x) <-> Person(x) & Person(y) & Shaves(x,y)).
+        all x exists y(Barber(x) <-> Person(x) & Person(y) & Shaves(x,y) & -(x=y)).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
@@ -75,7 +75,7 @@ formulas(assumptions).
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
 %%                                or are shaved by a barber who lives in the same village. ****"
 
-        all x all y(Person(x) & Village(y) & Lives (x,y)) 
+        all x exists y(Person(x) & Village(y) & Lives (x,y)) 
         & ( (-Shaves(x,x)) | (exists z-(Barber(z) & Lives(z,y) & Shaves(z,x)))
         -> Bearded(x)).
 
