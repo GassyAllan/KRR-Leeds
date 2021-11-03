@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "Sam and Tam are students who both wear earhook headphones. *"
 
-        exists sam exists tam(Student(sam) & Student(tam) & WearEarhooks(sam) & WearEarhooks(tam)).
+        exists sam exists tam(Student(sam) & Student(tam) & WearsEarhooks(sam) & WearsEarhooks(tam)).
 
 %% A2: "Sam has long hair and does not like sport."
 
@@ -77,7 +77,7 @@ formulas(assumptions).
 
 %% A6: "Students only whistle tunes they like."
 
-        all x all y ( Student(x) & Tune(y) & Whistles (x,y) -> Like(x,y) ).
+        all x all y ( Student(x) & Tune(y) & Whistles (x,y) -> Likes(x,y) ).
 
 %% A7: "Sam and Tam both whistle the same tune."
 
@@ -85,7 +85,7 @@ formulas(assumptions).
 
 %% A8: "Only hipsters and sporty students wear earhook headphones."
 
-        all x( WearEarhooks(x) -> (Hipster(x) & Student(x)) | (Sporty(x) & Student(x)) ).
+        all x( WearsEarhooks(x) -> (Hipster(x) & Student(x)) | (Sporty(x) & Student(x)) ).
 
 %% A9: "All long-haired hipsters are vegetarians."
 
@@ -93,11 +93,11 @@ formulas(assumptions).
 
 %% A10: "All hipsters with short hair are allergic to something."
 
-        all x exists y( Hipster(x) & Shorthair(x) -> AllergicTo(x,y) ).
+        all x exists y( Hipster(x) & ShortHair(x) -> AllergicTo(x,y) ).
 
 %% A11: "Tam is not allergic to anything."
 
-        exists tam exists y -(AllergicTo(tam,y)).
+        -(exists tam exists y(AllergicTo(tam,y))).
 
 %% A12: "Vegetarians don't eat food that contains meat. **"
 
