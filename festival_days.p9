@@ -81,7 +81,7 @@ formulas(assumptions).
 
 %% A7: "Eating pancakes or jelly makes me happy unless I'm ill."
 
-        ((EatPancakes | (EatJelly) & -Ill ) -> Happy.
+        ((EatPancakes | EatJelly) & -Ill ) -> Happy.
 
 
 end_of_list.
