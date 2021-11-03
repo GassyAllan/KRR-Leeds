@@ -57,11 +57,11 @@ formulas(assumptions).
 
 %% A1: "Sam and Tam are students who both wear earhook headphones. *"
 
-        exists sam exists tam(Student(sam) & Student(tam) & WearsEarhooks(sam) & WearsEarhooks(tam)).
+        Student(sam) & Student(tam) & WearsEarhooks(sam) & WearsEarhooks(tam).
 
 %% A2: "Sam has long hair and does not like sport."
 
-        exists sam exists x(LongHair(sam) & Sporty(x) & -Likes(sam, x)).
+        exists x(LongHair(sam) & Sporty(x) & -Likes(sam, x)).
 
 %% A3: "Sporty students don't have long hair."
 
@@ -81,7 +81,7 @@ formulas(assumptions).
 
 %% A7: "Sam and Tam both whistle the same tune."
 
-        exists sam exists tam exists x(Tune(x) & Whistles(sam,x) & Whistles(tam,x)).
+        exists x(Tune(x) & Whistles(sam,x) & Whistles(tam,x)).
 
 %% A8: "Only hipsters and sporty students wear earhook headphones."
 
@@ -97,7 +97,7 @@ formulas(assumptions).
 
 %% A11: "Tam is not allergic to anything."
 
-        -(exists tam exists y(AllergicTo(tam,y))).
+        -(exists y(AllergicTo(tam,y))).
 
 %% A12: "Vegetarians don't eat food that contains meat. **"
 
@@ -109,7 +109,7 @@ formulas(assumptions).
 
 %% A14: "Tam is eating a snack from a burger van."
 
-        exists tam exists x exists y( BurgerVan(x) & Snack(y) & From(y,x) & Eats(tam,y) ).
+        exists x exists y( BurgerVan(x) & Snack(y) & From(y,x) & Eats(tam,y) ).
 
 %% A15: "Give a general axiom linking the concepts 'snack' and 'food'. ***"
 
@@ -122,6 +122,6 @@ formulas(goals).
 
 %% GOAL: "Tam is eating chips."
 
-          exists tam exists x(Chips(x) & Eats(tam,x) ).
+         exists x(Chips(x) & Eats(tam,x) ).
 
 end_of_list.
