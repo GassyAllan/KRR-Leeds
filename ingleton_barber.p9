@@ -93,6 +93,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          exists x exists y(Dog(x) & Pink(x) & Homework(y) & -(x=y) -> Ate(x,y)) .
+          exists x(Dog(x) & Pink(x) & Homework(me) -> Ate(x,me)) .
 
 end_of_list.
