@@ -57,7 +57,7 @@ formulas(assumptions).
 
 %% A1: "Today is a festival day but I'm not Happy."
 
-        exists x (FestivalDay & -Happy(x)).
+        FestivalDay & -Happy.
 
 %% A2: "Festivals only take place on Moondays, Stardays and Sumdays."
 
@@ -73,7 +73,7 @@ formulas(assumptions).
 
 %% A5: "On Moondays I sing and Dance"
 
-        Moonday -> (Sing & Dance\0.
+        Moonday -> (Sing & Dance).
 
 %% A6: "When I'm ill I can neither sing nor dance."
 
@@ -81,7 +81,7 @@ formulas(assumptions).
 
 %% A7: "Eating pancakes or jelly makes me happy unless I'm ill."
 
-        exists y exists x( (EatPancakes(y) | (EatJelly(y)) & -Ill(x) -> Happy(x)).
+        ((EatPancakes | (EatJelly) & -Ill ) -> Happy(x)).
 
 
 end_of_list.
@@ -90,6 +90,6 @@ formulas(goals).
 
 %% GOAL: "What day is it? *"
 
-          (Moonday & -Sumday) | (-Moonday & Sumday).
+          Moonday | Sumday | Starday.
 
 end_of_list.
