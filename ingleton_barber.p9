@@ -83,7 +83,7 @@ formulas(assumptions).
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
 
         all v(Village(v) -> -(exists y exists z(Barber(y) & Barber(z) & Lives(y,v) & Lives(z,v) & -(y=z))) )
-        & all x (Lives(x, ingleton) & Shaves(x,x) -> -Shaves(y,x)).
+        & all x (Lives(x, ingleton) & Shaves(x,x) -> exists v(Barber(v) & -Shaves(y,x)).
         
 
 
