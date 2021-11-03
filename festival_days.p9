@@ -81,7 +81,7 @@ formulas(assumptions).
 
 %% A7: "Eating pancakes or jelly makes me happy unless I'm ill."
 
-        exists x((EatPancakes(x) | (EatJelly(x)) & -Ill(x)) ) -> Happy(x)).
+        exists y exists x( (EatPancakes(y) | (EatJelly(y)) & -Ill(x) -> Happy(x)).
 
 
 end_of_list.
