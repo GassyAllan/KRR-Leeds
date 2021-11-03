@@ -58,8 +58,8 @@ formulas(assumptions).
 %% A1: "Two of the people who live in the village Ingleton are Tom and his old father, Alfred,
 %%                             who is blind."
 
-        exists tom exists alfred exists ingleton(Person(tom) & Person(alfred) & Village(ingleton) 
-        & Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred) & -(tom = alfred) & -(tom = ingleton) & -(alfred = ingleton)).
+        
+        Lives(tom, ingleton) & Lives(alfred, ingleton) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred) & -(tom = alfred).
      
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
