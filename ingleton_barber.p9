@@ -59,7 +59,7 @@ formulas(assumptions).
 %%                             who is blind."
 
         
-        exists x exists y(Person(x) & Person(y) & Village(ingleton) Lives(x, ingleton) & Lives(y, ingleton) & (x=tom) & (y=alfred) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred)).
+        exists x exists y(Person(x) & Person(y) & Village(ingleton) & Lives(x, ingleton) & Lives(y, ingleton) & (x=tom) & (y=alfred) & IsFatherOf(alfred, tom) & Old(alfred) & Blind(alfred)).
      
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
@@ -96,6 +96,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          exists x exists y(Dog(x) & Pink(x) & Homework(y) & -(x=y) & Ate(x,y)) .
+          (exists x(Dog(x) & Pink(x)) & exists y(Homework(y) & -(x=y)) ) -> Ate(x,y) .
 
 end_of_list.
