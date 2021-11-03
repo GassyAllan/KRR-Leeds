@@ -65,19 +65,19 @@ formulas(assumptions).
 
 %% A3: "I'm always happy on Stardays"
 
-        all x ( Starday -> Happy(x)).
+        Starday -> Happy.
 
 %% A4: "On Sumdays I eat pancakes and on Moondays I eat jelly."
 
-        exists x( (Sumday -> EatPancakes(x)) & (Moonday -> EatJelly(x)) ).
+        (Sumday -> EatPancakes) & (Moonday -> EatJelly).
 
 %% A5: "On Moondays I sing and Dance"
 
-        exists x (Moonday -> ( Sing(x) & Dance(x))).
+        Moonday -> (Sing & Dance\0.
 
 %% A6: "When I'm ill I can neither sing nor dance."
 
-        exists x ((Ill(x) -> -Sing(x)) & (Ill(x) -> -Dance(x)) ).
+        Ill -> (-Sing & -Dance).
 
 %% A7: "Eating pancakes or jelly makes me happy unless I'm ill."
 
