@@ -75,7 +75,7 @@ formulas(assumptions).
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
 %%                                or are shaved by a barber who lives in the same village. ****"
 
-         all x exists y( -Bearded(x) -> ((Person(x) & Village(y) & Lives (x,y)) & ( (Shaves(x,x)) | (exists z(Barber(z) & Lives(z,y) & Shaves(z,x)))).
+         all x exists y( -Bearded(x) -> (((Person(x) & Village(y) & Lives (x,y)) & ( (Shaves(x,x)) | (exists z(Barber(z) & Lives(z,y) & Shaves(z,x))))).
 
 %% A5: "No more than one barber lives in any village and
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
@@ -91,6 +91,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          exists x exists y(Dog(x) & Pink(x) & Homework(y) & Of(x,me) & Ate(x,y)) .
+          exists x exists y(Dog(x) & Pink(x) & Homework(y) & Of(y,me) & Ate(x,y)) .
 
 end_of_list.
