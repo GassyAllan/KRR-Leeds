@@ -83,7 +83,7 @@ formulas(assumptions).
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
 
         all v(Village(v) -> -(exists y exists z(Barber(y) & Barber(z) & Lives(y,v) & Lives(z,v) & -(y=z))) )
-        & all x ((Lives(x, ingleton) & Shaves(x,x)) -> -Shaves(y,x))).
+        & all x ((Lives(x, ingleton) & Shaves(x,x)) -> -Shaves(y,x)).
         
 
 
@@ -93,6 +93,6 @@ formulas(goals).
 
 %% GOAL: "A pink dog ate my homework. *****"
 
-          exists x exists y(Dog(x) & Pink(x) & Homework(y) & Of(y,me) & Ate(x,y)) .
+          exists x exists y(Dog(x) & Pink(x) & Homework(y) & Of(x,me) & Ate(x,y)) .
 
 end_of_list.
