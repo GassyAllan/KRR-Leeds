@@ -68,8 +68,8 @@ formulas(assumptions).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
-        (-(all x(Barber(x) -> Bearded(x))) & -(exists y exists z(Person(y) & Person(z) & Blind(y) & Shaves(y,z))))
-        & (Shaves(tom,alfred)).
+        (-(all x(Barber(x) -> Bearded(x))) & -(all y(Person(y) & Blind(y) & (exists z(Person(z)) -> Shaves(y,z))))
+        -> (Shaves(tom,alfred)).
                
 
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
