@@ -105,7 +105,7 @@ formulas(assumptions).
 
 %% A13: "All snacks from burger vans contain meat except chips."
 
-        all x all z exists v( ((Snack(x) & BurgerVan(z) & From(x,z) & Meat(v)) & -(Snack(x) -> Chips(x)) ) -> Contains(x,v)).
+        all x all z exists v( ((Snack(x) & BurgerVan(z) & From(x,z) & Meat(v)) & -(Snack(x) & Chips(x)) ) -> Contains(x,v)).
 
 %% A14: "Tam is eating a snack from a burger van."
 
