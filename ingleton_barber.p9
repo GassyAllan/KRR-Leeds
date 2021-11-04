@@ -64,7 +64,7 @@ formulas(assumptions).
 
 %% A2: "The concept of 'barber' can be defined as: "any person who shaves some other person". **"
 
-        all x exists y(Barber(x) <-> Person(x) & Person(y) & Shaves(x,y) & -(x=y)).
+        all x (Barber(x) <-> exists x exists y(Person(x) & Person(y) & Shaves(x,y) & -(x=y))).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
