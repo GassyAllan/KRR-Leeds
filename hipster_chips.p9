@@ -69,7 +69,7 @@ formulas(assumptions).
 
 %% A4: "Hipsters only like tunes that no non-hipster likes."
 
-        all x all y all z( -(-Hipster(x) & Tune(y) & Likes(x,y)) -> Hipster(z) & Likes(z,y) ) .
+        all x all y all z( (-Hipster(x) & Tune(y) & Likes(x,y)) -> -(Hipster(z) & Likes(z,y)) ) .
 
 %% A5: "Hispsters either have long hair or short hair."
 
