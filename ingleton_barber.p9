@@ -68,7 +68,7 @@ formulas(assumptions).
 
 %% A3: "No barber is bearded and no person is shaved by a blind person, so Tom shaves Alfred.***"
 
-        all x(Barber(x) -> -Bearded(x)) & -(exists y exists z(Person(y) & Person(z) & Blind(y) & Shaves(y,z)))
+        all x(-Barber(x) -> Bearded(x)) & -(exists y exists z(Person(y) & Person(z) & Blind(y) & Shaves(y,z)))
         -> (Shaves(tom,alfred)).
                
 
@@ -83,7 +83,7 @@ formulas(assumptions).
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
 
         all v(Village(v) -> -(exists y exists z(Barber(y) & Barber(z) & Lives(y,v) & Lives(z,v) & -(y=z))) )
-        & all x (Lives(x, ingleton) & Shaves(x,x) -> exists v(Barber(v) & -Shaves(v,x))).
+        & all x ((Lives(x, ingleton) & Shaves(x,x)) -> -Shaves(y,x))).
         
 
 
