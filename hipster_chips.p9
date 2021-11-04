@@ -61,7 +61,7 @@ formulas(assumptions).
 
 %% A2: "Sam has long hair and does not like sport."
 
-        all x(Sporty(x) -> -Likes(sam, x)) & LongHair(sam).
+        LongHair(sam) & -(exist x(Sporty(x) & Likes(sam, x))).
 
 %% A3: "Sporty students don't have long hair."
 
