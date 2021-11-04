@@ -85,7 +85,7 @@ formulas(assumptions).
 
 %% A8: "Only hipsters and sporty students wear earhook headphones."
 
-        all x( -((Hipster(x) & Student(x)) | (Sporty(x) & Student(x))) -> -WearsEarhooks(x) ) .
+        all x( -(Hipster(x) | (Sporty(x) & Student(x))) -> -WearsEarhooks(x) ) .
 
 %% A9: "All long-haired hipsters are vegetarians."
 
