@@ -105,7 +105,7 @@ formulas(assumptions).
 
 %% A13: "All snacks from burger vans contain meat except chips."
 
-        -(all x all y(Snack(x) & Chips(y) & (x=y))) -> all x all z all v(Snack(x) & BurgerVan(z) & From(x,z) & Meat(v) & Contains(x,v)).
+        -(all x all y(Snack(x) & Chips(y) & (x=y))) -> all x all z all v(Snack(x) & BurgerVan(z) & From(x,z) -> Meat(v) & Contains(x,v)).
 
 %% A14: "Tam is eating a snack from a burger van."
 
@@ -113,7 +113,7 @@ formulas(assumptions).
 
 %% A15: "Give a general axiom linking the concepts 'snack' and 'food'. ***"
 
-        -(exists x(Food(x) -> -Snack(x)).
+        -(exists x(Food(x) -> -Snack(x))).
 
 
 end_of_list.
