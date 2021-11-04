@@ -75,7 +75,7 @@ formulas(assumptions).
 %% A4: " Everyone who lives in a village has a beard, unless they shave themself
 %%                                or are shaved by a barber who lives in the same village. ****"
 
-        -( exists x(Shaves(x,x)) | exists x exists z(Barber(z) & Lives(z,y) & Shaves(z,x))) -> all x all y((Village(y) & Lives(x,y)) -> Bearded(x)).
+        -( all x (Shaves(x,x)) | all x all z( (Barber(z) & Lives(z,y)) -> Shaves(z,x))) -> all x all y((Village(y) & Lives(x,y)) -> Bearded(x)).
 
 %% A5: "No more than one barber lives in any village and
 %%                              everyone living in Ingleton who shaves themself never gets shaved by a barber."
